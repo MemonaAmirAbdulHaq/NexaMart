@@ -1,101 +1,116 @@
+// import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import { server } from "../../server";
 
-// import { useState,useEffect} from "react"
-// import React  from 'react'
-
-// const CountDown = () => {
+// const CountDown = ({ data }) => {
 //   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
 //   useEffect(() => {
 //     const timer = setTimeout(() => {
-//         setTimeLeft(calculateTimeLeft());
-//         }, 1000);
+//       setTimeLeft(calculateTimeLeft());
+//     }, 1000);
+
+//     if (
+//       typeof timeLeft.days === 'undefined' &&
+//       typeof timeLeft.hours === 'undefined' &&
+//       typeof timeLeft.minutes === 'undefined' &&
+//       typeof timeLeft.seconds === 'undefined'
+//     ) {
+//       axios.delete(`${server}/event/delete-shop-event/${data._id}`);
+//     }
 //     return () => clearTimeout(timer);
-//   }, [])
+//   });
+
 //   function calculateTimeLeft() {
-//     const difference = +new Date("2025-01-01") - +new Date();
+//     const difference = +new Date(data.Finish_Date) - +new Date();
 //     let timeLeft = {};
+
 //     if (difference > 0) {
 //       timeLeft = {
-//           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+//         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
 //         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
 //         minutes: Math.floor((difference / 1000 / 60) % 60),
 //         seconds: Math.floor((difference / 1000) % 60),
 //       };
-//     } 
+//     }
+
 //     return timeLeft;
 //   }
+
 //   const timerComponents = Object.keys(timeLeft).map((interval) => {
-//     if(!timeLeft[interval]) {
+//     if (!timeLeft[interval]) {
 //       return null;
 //     }
-//     return( <span className="text-[25px] font-bold text-[#475ad2]">
-//         {timeLeft[interval]} {interval} {""}
-//     </span>)
-//   })
 
-
+//     return (
+//       <span className="text-[25px] text-[#475ad2]">
+//         {timeLeft[interval]} {interval}{" "}
+//       </span>
+//     );
+//   });
 
 //   return (
-//    <div>
-//     {timerComponents.length ? timerComponents : <span className="text-[25px]  text-[red]">Time's up!</span>}
-//    </div>
-//   )
-// }
+//     <div>
+//       {timerComponents.length ? (
+//         timerComponents
+//       ) : (
+//         <span className="text-[red] text-[25px]">Time's Up</span>
+//       )}
+//     </div>
+//   );
+// };
 
-// export default CountDown
-import { useState, useEffect } from "react";
-import React from "react";
+// export default CountDown;
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { server } from "../../server";
 
-const CountDown = () => {
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const targetDate = new Date(now);
-    targetDate.setMonth(targetDate.getMonth() + 1); // 🔄 Set for 1 month ahead
-
-    const difference = targetDate - now;
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / (1000 * 60)) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-
-    return timeLeft;
-  };
-
+const CountDown = ({ data }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const newTimeLeft = calculateTimeLeft();
+      setTimeLeft(newTimeLeft);
+
+      // Delete event if countdown is over
+      if (
+        Object.keys(newTimeLeft).length === 0
+      ) {
+        clearInterval(timer); // stop the timer
+        axios.delete(`${server}/event/delete-shop-event/${data._id}`)
+          .catch(err => console.error(err));
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  });
+  }, [data._id]);
 
-  const timerComponents = Object.entries(timeLeft).map(([interval, value]) => (
-    <span key={interval} className="text-[25px]  text-[#475ad2] mr-2">
-      {value} {interval}
-    </span>
-  ));
+  function calculateTimeLeft() {
+    const difference = +new Date(data.Finish_Date) - +new Date();
+    if (difference <= 0) return {}; // countdown finished
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  }
 
   return (
-    <div>
-      {timerComponents.length > 0 ? (
-        timerComponents
+    <div className="flex flex-wrap gap-2">
+      {Object.keys(timeLeft).length ? (
+        Object.entries(timeLeft).map(([interval, value]) => (
+          <span key={interval} className="text-[25px] text-[#475ad2]">
+            {value} {interval}
+          </span>
+        ))
       ) : (
-        <span className="text-[25px] text-[red]">Time's up!</span>
+        <span className="text-[red] text-[25px]">Time's Up</span>
       )}
     </div>
   );
 };
 
 export default CountDown;
-
-
-
-

@@ -1,20 +1,47 @@
-import React, { useEffect } from 'react'
-import Signup from '../components/Signup/Signup.jsx'
-import { useNavigate } from 'react-router-dom';
+// import React, { useEffect } from 'react'
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+// import Signup from "../components/Signup/Signup";
+
+// const SignupPage = () => {
+//   const navigate = useNavigate();
+//   const { isAuthenticated } = useSelector((state) => state.user);
+
+//   useEffect(() => {
+//     if(isAuthenticated === true){
+//       navigate("/");
+//     }
+//   }, [])
+//   return (
+//     <div>
+//         <Signup />
+//     </div>
+//   )
+// }
+
+// export default SignupPage
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Signup from "../components/Signup/Signup";
+
 const SignupPage = () => {
   const navigate = useNavigate();
- const { isAuthenticated} = useSelector((state) => state.user);
+  const { isAuthenticated, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if(isAuthenticated===true){
-     navigate("/");}
-  }, []);
+    if (isAuthenticated === true) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
-    <div>
-      <Signup/>
+    <div className="w-full min-h-screen flex justify-center items-start p-4 bg-gray-50">
+      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6">
+        <Signup />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default SignupPage;
