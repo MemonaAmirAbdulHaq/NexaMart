@@ -31,6 +31,7 @@ router.post("/create-user", async (req, res, next) => {
         secure_url: avatar,
       };
     }
+ 
 
     // Generate short activation token (32 characters)
     const activationToken = crypto.randomBytes(16).toString("hex");

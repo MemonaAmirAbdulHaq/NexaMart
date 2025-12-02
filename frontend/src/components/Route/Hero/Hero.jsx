@@ -1,75 +1,85 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import styles from "../../../styles/styles";
 
-// const Hero = () => {
-//   return (
-//     <div
-//       className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
-//       style={{
-//         backgroundImage:
-//           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
-//       }}
-//     >
-//       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
-//         <h1
-//           className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
-//         >
-//           Best Collection for <br /> home Decoration
-//         </h1>
-//         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
-//           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-//           assumenda? Quisquam itaque <br /> exercitationem labore vel, dolore
-//           quidem asperiores, laudantium temporibus soluta optio consequatur{" "}
-//           <br /> aliquam deserunt officia. Dolorum saepe nulla provident.
-//         </p>
-//         <Link to="/products" className="inline-block">
-//             <div className={`${styles.button} mt-5`}>
-//                  <span className="text-[#fff] font-[Poppins] text-[18px]">
-//                     Shop Now
-//                  </span>
-//             </div>
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Hero;
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "../../../styles/styles";
+import React from 'react';
 
 const Hero = () => {
   return (
-    <div
-      className={`relative min-h-[70vh] sm:min-h-[80vh] w-full bg-no-repeat bg-cover bg-center ${styles.noramlFlex}`}
-      style={{
-        backgroundImage:
-          "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
-      }}
-    >
-      <div className={`${styles.section} w-[90%] sm:w-[70%] lg:w-[60%]`}>
-        <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug font-semibold text-[#3d3a3a] capitalize"
-        >
-          Best Collection for <br /> Home Decoration
-        </h1>
-        <p className="pt-5 text-sm sm:text-base md:text-lg font-[Poppins] text-[#000000ba]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-          assumenda? Quisquam itaque exercitationem labore vel, dolore quidem
-          asperiores, laudantium temporibus soluta optio consequatur aliquam
-          deserunt officia. Dolorum saepe nulla provident.
-        </p>
-        <Link to="/products" className="inline-block mt-5">
-          <div className={`${styles.button}`}>
-            <span className="text-white font-[Poppins] text-base sm:text-lg">
-              Shop Now
-            </span>
+    <section className="bg-white min-h-screen flex items-center">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Image */}
+          <div className="order-2 lg:order-1">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#0d5d5d] rounded-2xl transform rotate-3"></div>
+              <div className="relative bg-gradient-to-br from-[#0a4a4a] to-[#083838] rounded-2xl p-8 shadow-2xl">
+                <img
+                  src="https://images.stockcake.com/public/d/2/5/d2526af8-dd36-47ae-b693-bbb074a106d4_large/home-office-greenery-stockcake.jpg"
+                  alt="Team collaboration"
+                  className="w-full h-96 object-cover rounded-xl shadow-lg"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-[#0d5d5d] rounded-full animate-pulse"></div>
+                    <span className="text-[#0d5d5d] font-semibold text-sm">Live Now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </Link>
+
+          {/* Right side - Content */}
+          <div className="order-1 lg:order-2 space-y-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-4 py-2 bg-white bg-opacity-10 text-[#0d5d5d] rounded-full text-sm font-medium">
+                ✨ New Feature Launch
+              </div>
+              
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Discover Amazing
+                <span className="text-[#0d5d5d]"> Products </span>
+                 Quality Meets Excellence
+              </h1>
+              
+              <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+                Experience unmatched quality and stunning design with our curated collection.
+            Perfect for everyone looking for the best products at great prices.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-[#0d5d5d] hover:bg-[#0a4a4a] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Get Started Free
+              </button>
+              <button className="border-2 border-[#0d5d5d] text-[#0d5d5d] hover:bg-[#0d5d5d] hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300">
+                Watch Demo
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#0d5d5d]">10K+</div>
+                <div className="text-sm text-gray-600">Active Users</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#0d5d5d]">99.9%</div>
+                <div className="text-sm text-gray-600">Uptime</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#0d5d5d]">24/7</div>
+                <div className="text-sm text-gray-600">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-40 -right-32 w-96 h-96 bg-[#0d5d5d] rounded-full opacity-10"></div>
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#0a4a4a] rounded-full opacity-5"></div>
+      </div>
+    </section>
   );
 };
 
