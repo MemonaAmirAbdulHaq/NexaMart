@@ -18,11 +18,10 @@ const AdminHeader = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/">
-            <img
-              src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-              alt="Shopo Logo"
-              className="h-[40px] sm:h-[45px]"
-            />
+            <Link to="/">
+            <div className="flex items-center"> <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] bg-clip-text text-transparent hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] transition-all"> NexaMart </h1> </div>
+            
+          </Link>
           </Link>
         </div>
 

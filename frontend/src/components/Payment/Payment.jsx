@@ -188,7 +188,7 @@ const PaymentOption = ({
                 <CardCvcElement className={`${styles.input} w-full`} />
               </div>
             </div>
-            <button type="submit" disabled={loading} className={`${styles.button} ${loading?"opacity-50":"bg-[#f63b60]"} w-full h-12 mt-2`}>
+            <button type="submit" disabled={loading} className={`${styles.button} ${loading?"opacity-50":"bg-[#f63b60]"} text-white w-full h-12 mt-2`}>
               {loading ? "Processing..." : "Pay"}
             </button>
           </div>

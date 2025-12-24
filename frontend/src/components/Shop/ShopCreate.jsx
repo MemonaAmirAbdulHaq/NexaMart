@@ -181,20 +181,26 @@ const ShopCreate = () => {
             </div>
 
             {/* Submit Button */}
+           
             <div>
-              <button
-                type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </div>
+  <button
+    type="submit"
+    className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700"
+  >
+    Submit
+  </button>
+</div>
 
             {/* Login Link */}
-            <div className={`${styles.noramlFlex} w-full`}>
-              <h4>Already have an account?</h4>
-              <Link to="/shop-login" className="text-blue-600 pl-2">Sign in</Link>
-            </div>
+          <div className={`${styles.noramlFlex} w-full`}>
+  <h4>Already have an account?</h4>
+  <Link 
+    to="/shop-login" 
+    className="text-teal-600 hover:text-teal-700 font-medium pl-2"
+  >
+    Sign in
+  </Link>
+</div>
           </form>
         </div>
       </div>

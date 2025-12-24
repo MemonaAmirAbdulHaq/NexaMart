@@ -49,16 +49,22 @@ const Header = ({ activeHeading }) => {
     setSearchData(filtered || []);
   };
 
+  const closeAllModals = () => {
+    setOpenSidebar(false);
+    setOpenCart(false);
+    setOpenWishlist(false);
+  };
+
   return (
     <>
       {/* -------- Desktop Header -------- */}
-      <div className={`${styles.section}`}>
-        <div className="hidden lg:flex h-[80px] my-[20px] items-center justify-between">
-
+      <div className={`${styles.section} hidden lg:block`}>
+        <div className="h-[80px] my-[20px] flex items-center justify-between">
           {/* Logo */}
           <Link to="/">
-            <div className="flex items-center"> <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] bg-clip-text text-transparent hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] transition-all"> NexaMart </h1> </div>
-            
+            <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] bg-clip-text text-transparent hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] transition-all">
+              NexaMart
+            </h1>
           </Link>
 
           {/* Search bar */}
@@ -85,7 +91,7 @@ const Header = ({ activeHeading }) => {
                   >
                     <img
                       src={item.images[0]?.url}
-                      alt=""
+                      alt="product"
                       className="w-[40px] h-[40px] rounded object-cover"
                     />
                     <p className="text-sm">{item.name}</p>
@@ -96,30 +102,23 @@ const Header = ({ activeHeading }) => {
           </div>
 
           {/* Seller / Dashboard Button */}
-          <div className="bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] 
-                rounded-lg 
-                hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] 
-                transition-all duration-300 transform hover:scale-105">
-  <Link to={isSeller ? "/dashboard" : "/shop-create"}>
-    <h1 className="text-white flex items-center px-6 py-2">
-      {isSeller ? "Go Dashboard" : "Become Seller"}
-      <IoIosArrowForward className="ml-1" />
-    </h1>
-  </Link>
-</div>
-
+          <div className="bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] rounded-lg hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] transition-all duration-300 transform hover:scale-105">
+            <Link to={isSeller ? "/dashboard" : "/shop-create"}>
+              <h1 className="text-white flex items-center px-6 py-2">
+                {isSeller ? "Go Dashboard" : "Become Seller"}
+                <IoIosArrowForward className="ml-1" />
+              </h1>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* -------- Navbar Section -------- */}
       <div
-  className={`${
-    active ? "shadow-sm fixed top-0 left-0 z-20" : ""
-  } hidden lg:flex items-center justify-between w-full 
-     bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838]
-     h-[70px] transition-all duration-300`}
->
-
+        className={`${
+          active ? "shadow-sm fixed top-0 left-0 z-20" : ""
+        } hidden lg:flex items-center justify-between w-full bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] h-[70px] transition-all duration-300`}
+      >
         <div className={`${styles.section} flex justify-between items-center`}>
           {/* Categories Dropdown */}
           <div className="relative">
@@ -150,8 +149,14 @@ const Header = ({ activeHeading }) => {
             <div
               className="relative cursor-pointer group"
               onClick={() => setOpenWishlist(true)}
+              role="button"
+              tabIndex={0}
             >
-              <AiOutlineHeart size={28} color="#fff" className="group-hover:text-teal-300 transition-colors" />
+              <AiOutlineHeart
+                size={28}
+                color="#fff"
+                className="group-hover:text-teal-300 transition-colors"
+              />
               {wishlist?.length > 0 && (
                 <span className="absolute -top-1 -right-2 bg-gradient-to-r from-teal-500 to-teal-400 text-white text-[12px] w-4 h-4 flex items-center justify-center rounded-full">
                   {wishlist.length}
@@ -163,8 +168,14 @@ const Header = ({ activeHeading }) => {
             <div
               className="relative cursor-pointer group"
               onClick={() => setOpenCart(true)}
+              role="button"
+              tabIndex={0}
             >
-              <AiOutlineShoppingCart size={28} color="#fff" className="group-hover:text-cyan-300 transition-colors" />
+              <AiOutlineShoppingCart
+                size={28}
+                color="#fff"
+                className="group-hover:text-cyan-300 transition-colors"
+              />
               {cart?.length > 0 && (
                 <span className="absolute -top-1 -right-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-[12px] w-4 h-4 flex items-center justify-center rounded-full">
                   {cart.length}
@@ -174,7 +185,10 @@ const Header = ({ activeHeading }) => {
 
             {/* Profile */}
             {isAuthenticated ? (
-              <Link to="/profile" className="hover:ring-2 hover:ring-teal-400 rounded-full transition-all">
+              <Link
+                to="/profile"
+                className="hover:ring-2 hover:ring-teal-400 rounded-full transition-all"
+              >
                 <img
                   src={user?.avatar?.url}
                   alt="Profile"
@@ -194,110 +208,176 @@ const Header = ({ activeHeading }) => {
       <div
         className={`${
           active ? "shadow-sm fixed top-0 left-0 z-20" : ""
-        } lg:hidden w-full bg-black h-[60px] flex items-center justify-between px-4`}
+        } lg:hidden w-full bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] h-[60px] flex items-center justify-between px-3 sm:px-4`}
       >
-        <BiMenuAltLeft
-          size={35}
-          className="cursor-pointer text-white hover:text-teal-400 transition-colors"
+        {/* Menu Button */}
+        <button
+          className="p-2 cursor-pointer text-white hover:text-teal-400 active:scale-95 transition-all"
           onClick={() => setOpenSidebar(true)}
-        />
-        <Link to="/">
-          <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt="logo"
-            className="h-[35px]"
-          />
-        </Link>
-        <div
-          className="relative cursor-pointer group"
-          onClick={() => setOpenCart(true)}
+          aria-label="Open menu"
         >
-          <AiOutlineShoppingCart size={28} color="#fff" className="group-hover:text-cyan-300 transition-colors" />
-          {cart?.length > 0 && (
-            <span className="absolute -top-1 -right-2 bg-gradient-to-r from-teal-500 to-teal-400 text-white text-[12px] w-4 h-4 flex items-center justify-center rounded-full">
-              {cart.length}
-            </span>
-          )}
+          <BiMenuAltLeft size={30} />
+        </button>
+
+        {/* Logo */}
+        <Link to="/" className="flex-shrink-0">
+          <h1 className="text-lg sm:text-xl font-bold text-white">NexaMart</h1>
+        </Link>
+
+        {/* Icons Container */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Wishlist Icon */}
+          <button
+            className="p-2 relative cursor-pointer text-white hover:text-teal-400 active:scale-95 transition-all"
+            onClick={() => setOpenWishlist(true)}
+            aria-label="Open wishlist"
+          >
+            <AiOutlineHeart size={24} />
+            {wishlist?.length > 0 && (
+              <span className="absolute top-0 right-0 bg-gradient-to-r from-teal-500 to-teal-400 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                {wishlist.length}
+              </span>
+            )}
+          </button>
+
+          {/* Cart Icon */}
+          <button
+            className="p-2 relative cursor-pointer text-white hover:text-teal-400 active:scale-95 transition-all"
+            onClick={() => setOpenCart(true)}
+            aria-label="Open cart"
+          >
+            <AiOutlineShoppingCart size={24} />
+            {cart?.length > 0 && (
+              <span className="absolute top-0 right-0 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                {cart.length}
+              </span>
+            )}
+          </button>
         </div>
       </div>
 
       {/* -------- Sidebar for Mobile -------- */}
       {openSidebar && (
-        <div className="fixed inset-0 bg-[#00000060] z-30">
-          <div className="fixed bg-black text-white w-[75%] h-full p-4 overflow-y-auto">
-            <div className="flex justify-between items-center mb-6">
-              <div
-                className="relative cursor-pointer group"
+        <div
+          className="fixed inset-0 bg-[#00000060] z-30 lg:hidden"
+          onClick={() => setOpenSidebar(false)}
+        >
+          <div
+            className="fixed bg-black text-white w-[85%] sm:w-[75%] h-full overflow-y-auto shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-black flex justify-between items-center p-4 border-b border-teal-500">
+              {/* Wishlist Icon */}
+              <button
+                className="p-2 relative cursor-pointer text-white hover:text-teal-400 transition-colors"
                 onClick={() => setOpenWishlist(true)}
+                aria-label="Open wishlist"
               >
-                <AiOutlineHeart size={28} color="#fff" className="group-hover:text-teal-400 transition-colors" />
+                <AiOutlineHeart size={24} />
                 {wishlist?.length > 0 && (
-                  <span className="absolute -top-1 -right-2 bg-gradient-to-r from-teal-500 to-teal-400 text-white text-[12px] w-4 h-4 flex items-center justify-center rounded-full">
+                  <span className="absolute top-0 right-0 bg-gradient-to-r from-teal-500 to-teal-400 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">
                     {wishlist.length}
                   </span>
                 )}
-              </div>
-              <RxCross1
-                size={28}
-                className="cursor-pointer hover:text-teal-400 transition-colors"
+              </button>
+
+              {/* Close Button */}
+              <button
+                className="p-2 cursor-pointer hover:text-teal-400 active:scale-95 transition-all"
                 onClick={() => setOpenSidebar(false)}
-              />
+                aria-label="Close menu"
+              >
+                <RxCross1 size={24} />
+              </button>
             </div>
 
             {/* Search */}
-            <div className="mb-4">
+            <div className="p-4 border-b border-teal-500">
               <input
                 type="text"
-                placeholder="Search Product..."
+                placeholder="Search..."
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="h-[40px] w-full border-2 border-teal-500 rounded-md px-2 focus:border-teal-400 focus:outline-none"
+                className="h-[40px] w-full border-2 border-teal-500 rounded-md px-3 focus:border-teal-400 focus:outline-none bg-gray-900 text-white placeholder-gray-400"
               />
               {searchData.length > 0 && (
-                <div className="bg-gray-900 shadow-md w-full mt-1 rounded-md max-h-[200px] overflow-y-auto border border-teal-500">
+                <div className="bg-gray-900 shadow-md w-full mt-2 rounded-md max-h-[200px] overflow-y-auto border border-teal-500">
                   {searchData.map((item, i) => (
                     <Link
                       key={i}
                       to={`/product/${item._id}`}
-                      onClick={() => {
-                        setSearchData([]);
-                        setOpenSidebar(false);
-                      }}
-                      className="flex items-center gap-3 p-2 hover:bg-teal-900"
+                      onClick={() => closeAllModals()}
+                      className="flex items-center gap-3 p-3 hover:bg-teal-900 active:bg-teal-800 transition-colors border-b border-gray-800"
                     >
                       <img
                         src={item.images[0]?.url}
-                        alt=""
-                        className="w-[40px] h-[40px] rounded object-cover"
+                        alt="product"
+                        className="w-[40px] h-[40px] rounded object-cover flex-shrink-0"
                       />
-                      <p className="text-sm text-gray-100">{item.name}</p>
+                      <p className="text-sm text-gray-100 line-clamp-2">
+                        {item.name}
+                      </p>
                     </Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <Navbar active={activeHeading} />
-            <div className="bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 mt-4">
-              <Link to="/shop-create" onClick={() => setOpenSidebar(false)}>
-                <h1 className="text-white flex items-center justify-center px-6 py-2">
-                  Become Seller <IoIosArrowForward className="ml-1" />
-                </h1>
+            {/* Navigation Links */}
+            <nav className="p-4 border-b border-teal-500">
+              <Navbar active={activeHeading} />
+            </nav>
+
+            {/* Seller Button */}
+            <div className="p-4 border-b border-teal-500">
+              <Link
+                to={isSeller ? "/dashboard" : "/shop-create"}
+                onClick={() => setOpenSidebar(false)}
+              >
+                <div className="bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] rounded-lg hover:shadow-lg transition-all duration-300 active:scale-95">
+                  <h1 className="text-white flex items-center justify-center px-6 py-3 font-medium">
+                    {isSeller ? "Go Dashboard" : "Become Seller"}
+                    <IoIosArrowForward className="ml-2" />
+                  </h1>
+                </div>
               </Link>
             </div>
 
-            <div className="flex justify-center mt-6">
+            {/* Profile Section */}
+            <div className="p-4">
               {isAuthenticated ? (
-                <Link to="/profile" onClick={() => setOpenSidebar(false)}>
+                <Link
+                  to="/profile"
+                  onClick={() => setOpenSidebar(false)}
+                  className="flex items-center gap-3 p-3 hover:bg-teal-900 active:bg-teal-800 rounded-lg transition-colors"
+                >
                   <img
                     src={user?.avatar?.url}
-                    alt=""
-                    className="w-[60px] h-[60px] rounded-full border-2 border-teal-400 object-cover hover:ring-2 hover:ring-cyan-300 transition-all"
+                    alt="profile"
+                    className="w-[50px] h-[50px] rounded-full border-2 border-teal-400 object-cover"
                   />
+                  <div className="flex-1">
+                    <p className="text-white font-medium text-sm">My Profile</p>
+                    <p className="text-gray-400 text-xs">{user?.name}</p>
+                  </div>
                 </Link>
               ) : (
-                <div className="flex gap-2 text-lg text-gray-300">
-                  <Link to="/login" className="hover:text-teal-400 transition-colors">Login</Link>/<Link to="/sign-up" className="hover:text-teal-400 transition-colors">Sign Up</Link>
+                <div className="space-y-2">
+                  <Link
+                    to="/login"
+                    onClick={() => setOpenSidebar(false)}
+                    className="block w-full bg-gradient-to-r from-teal-600 to-teal-500 text-white py-3 rounded-lg text-center font-medium hover:shadow-lg active:scale-95 transition-all"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/sign-up"
+                    onClick={() => setOpenSidebar(false)}
+                    className="block w-full bg-gray-800 text-white py-3 rounded-lg text-center font-medium hover:bg-gray-700 active:scale-95 transition-all"
+                  >
+                    Sign Up
+                  </Link>
                 </div>
               )}
             </div>

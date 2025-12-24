@@ -34,10 +34,9 @@ const DashboardHero = () => {
       headerName: "Status",
       minWidth: 130,
       flex: 0.7,
+      // FIXED: Using params.value instead of params.getValue
       cellClassName: (params) =>
-        params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor",
+        params.value === "Delivered" ? "greenColor" : "redColor",
     },
     {
       field: "itemsQty",
@@ -128,7 +127,6 @@ const DashboardHero = () => {
         </div>
       </div>
 
-      {/* Latest Orders Table */}
       <br />
       <h3 className="text-[22px] font-Poppins pb-2">Latest Orders</h3>
       <div className="w-full min-h-[45vh] bg-white rounded">

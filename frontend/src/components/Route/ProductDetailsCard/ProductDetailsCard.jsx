@@ -246,14 +246,14 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <img
                   src={data.images?.[0]?.url}
                   alt={data.name}
-                  className="w-full object-contain rounded-md"
+                  className="w-full object-contain rounded-md "
                 />
                 <div className="flex items-center mt-4">
                   <Link to={`/shop/preview/${data.shop._id}`} className="flex items-center gap-3">
                     <img
                       src={data.images?.[0]?.url}
                       alt=""
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-10 h-10 rounded-full object-cover" //10
                     />
                     <div>
                       <h3 className={styles.shop_name}>{data.shop.name}</h3>
@@ -263,7 +263,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 </div>
 
                 <button
-                  className={`${styles.button} bg-black mt-4 w-full flex justify-center items-center gap-2 h-11 rounded-md`}
+                  className={`${styles.button} bg-black text-white mt-4 w-full flex justify-center items-center gap-2 h-11 rounded-md`}
                   onClick={() => {}}
                 >
                   Send Message <AiOutlineMessage />
@@ -328,7 +328,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 </div>
 
                 <button
-                  className={`${styles.button} mt-6 w-full flex justify-center items-center gap-2 h-11 rounded-md`}
+                  className={`${styles.button} mt-6 w-full flex text-white justify-center items-center gap-2 h-11 rounded-md`}
                   onClick={addToCartHandler}
                 >
                   Add to cart <AiOutlineShoppingCart />

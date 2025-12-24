@@ -193,7 +193,7 @@ const ShippingInfo = ({
             <input
               type="text"
               value={user?.phoneNumber}
-              readOnly
+              
               className={`${styles.input} w-full`}
             />
           </div>

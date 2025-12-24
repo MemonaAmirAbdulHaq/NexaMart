@@ -1,4 +1,85 @@
 
+// import React from "react";
+// import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
+// import { RiLockPasswordLine } from "react-icons/ri";
+// import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
+// import { MdOutlineAdminPanelSettings, MdOutlineTrackChanges } from "react-icons/md";
+// import { TbAddressBook } from "react-icons/tb";
+// import { RxPerson } from "react-icons/rx";
+// import { Link, useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { server } from "../../server";
+// import { toast } from "react-toastify";
+// import { useSelector } from "react-redux";
+
+// const ProfileSidebar = ({ setActive, active }) => {
+//   const navigate = useNavigate();
+//   const { user } = useSelector((state) => state.user);
+
+//   const logoutHandler = async () => {
+//     try {
+//       const res = await axios.get(`${server}/user/logout`, { withCredentials: true });
+//       toast.success(res.data.message);
+//       navigate("/login");
+//       window.location.reload();
+//     } catch (error) {
+//       toast.error(error.response?.data?.message || error.message);
+//     }
+//   };
+
+//   const menuItems = [
+//     { id: 1, label: "Profile", icon: <RxPerson size={20} />, action: () => setActive(1) },
+//     { id: 2, label: "Orders", icon: <HiOutlineShoppingBag size={20} />, action: () => setActive(2) },
+//     { id: 3, label: "Refunds", icon: <HiOutlineReceiptRefund size={20} />, action: () => setActive(3) },
+//     { id: 4, label: "Inbox", icon: <AiOutlineMessage size={20} />, action: () => { setActive(4); navigate("/inbox"); } },
+//     { id: 5, label: "Track Order", icon: <MdOutlineTrackChanges size={20} />, action: () => setActive(5) },
+//     { id: 6, label: "Change Password", icon: <RiLockPasswordLine size={20} />, action: () => setActive(6) },
+//     { id: 7, label: "Address", icon: <TbAddressBook size={20} />, action: () => setActive(7) },
+//   ];
+
+//   return (
+//     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
+//       {menuItems.map((item) => (
+//         <div
+//           key={item.id}
+//           className="flex items-center cursor-pointer w-full mb-8"
+//           onClick={item.action}
+//         >
+//           {React.cloneElement(item.icon, { color: active === item.id ? "red" : "" })}
+//           <span className={`pl-3 ${active === item.id ? "text-red-500" : ""} 800px:block hidden`}>
+//             {item.label}
+//           </span>
+//         </div>
+//       ))}
+
+//       {user?.role === "Admin" && (
+//         <Link to="/admin/dashboard">
+//           <div
+//             className="flex items-center cursor-pointer w-full mb-8"
+//             onClick={() => setActive(8)}
+//           >
+//             <MdOutlineAdminPanelSettings size={20} color={active === 8 ? "red" : ""} />
+//             <span className={`pl-3 ${active === 8 ? "text-red-500" : ""} 800px:block hidden`}>
+//               Admin Dashboard
+//             </span>
+//           </div>
+//         </Link>
+//       )}
+
+//       <div
+//         className="flex items-center cursor-pointer w-full mb-8"
+//         onClick={logoutHandler}
+//       >
+//         <AiOutlineLogin size={20} color={active === 9 ? "red" : ""} />
+//         <span className={`pl-3 ${active === 9 ? "text-red-500" : ""} 800px:block hidden`}>
+//           Log out
+//         </span>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProfileSidebar;
 import React from "react";
 import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -39,6 +120,7 @@ const ProfileSidebar = ({ setActive, active }) => {
 
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
+      {/* Loop through main menu items */}
       {menuItems.map((item) => (
         <div
           key={item.id}
@@ -46,12 +128,13 @@ const ProfileSidebar = ({ setActive, active }) => {
           onClick={item.action}
         >
           {React.cloneElement(item.icon, { color: active === item.id ? "red" : "" })}
-          <span className={`pl-3 ${active === item.id ? "text-red-500" : ""} 800px:block hidden`}>
+          <span className={`pl-3 ${active === item.id ? "text-red-500" : ""}`}>
             {item.label}
           </span>
         </div>
       ))}
 
+      {/* Admin Dashboard link */}
       {user?.role === "Admin" && (
         <Link to="/admin/dashboard">
           <div
@@ -59,19 +142,20 @@ const ProfileSidebar = ({ setActive, active }) => {
             onClick={() => setActive(8)}
           >
             <MdOutlineAdminPanelSettings size={20} color={active === 8 ? "red" : ""} />
-            <span className={`pl-3 ${active === 8 ? "text-red-500" : ""} 800px:block hidden`}>
+            <span className={`pl-3 ${active === 8 ? "text-red-500" : ""}`}>
               Admin Dashboard
             </span>
           </div>
         </Link>
       )}
 
+      {/* Logout button */}
       <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={logoutHandler}
       >
         <AiOutlineLogin size={20} color={active === 9 ? "red" : ""} />
-        <span className={`pl-3 ${active === 9 ? "text-red-500" : ""} 800px:block hidden`}>
+        <span className={`pl-3 ${active === 9 ? "text-red-500" : ""}`}>
           Log out
         </span>
       </div>

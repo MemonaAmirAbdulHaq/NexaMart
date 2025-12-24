@@ -26,8 +26,9 @@ const AllOrders = () => {
       headerName: "Status",
       minWidth: 130,
       flex: 0.8,
+      // FIXED: Using params.value instead of params.getValue
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.value === "Delivered"
           ? "text-green-600 font-medium"
           : "text-red-600 font-medium";
       },
@@ -86,8 +87,14 @@ const AllOrders = () => {
               <DataGrid
                 rows={rows}
                 columns={columns}
-                pageSize={10}
-                disableSelectionOnClick
+                // Note: If using DataGrid v6+, use initialState for pagination
+                initialState={{
+                  pagination: {
+                    paginationModel: { pageSize: 10 },
+                  },
+                }}
+                pageSizeOptions={[10]}
+                disableRowSelectionOnClick
                 autoHeight
               />
             </div>
