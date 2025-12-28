@@ -307,7 +307,7 @@ const ChatBox = ({
             className={`flex ${msg.sender === userData?._id ? "justify-start" : "justify-end"}`}
             ref={scrollRef}
           >
-            {msg.sender !== userData?._id && (
+            {msg.sender === userData?._id && (
               <img
                 src={userData?.avatar?.url}
                 alt=""
