@@ -99,7 +99,7 @@ const AllCoupons = () => {
 
   const rows =
     coupons?.map((item) => ({
-      id: item._id,
+      id: item?._id,
       name: item.name,
       price: `${item.value}%`,
     })) || [];
