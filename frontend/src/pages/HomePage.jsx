@@ -1,29 +1,4 @@
-// import React from 'react'
-// import Header from "../components/Layout/Header";
-// import Hero from "../components/Route/Hero/Hero";
-// import Categories from "../components/Route/Categories/Categories";
-// import BestDeals from "../components/Route/BestDeals/BestDeals";
-// import FeaturedProduct from "../components/Route/FeaturedProduct/FeaturedProduct";
-// import Events from "../components/Events/Events";
-// import Sponsored from "../components/Route/Sponsored";
-// import Footer from "../components/Layout/Footer";
 
-// const HomePage = () => {
-//   return (
-//     <div>
-//         <Header activeHeading={1} />
-//         <Hero />
-//         <Categories />
-//         <BestDeals />
-//         <Events />
-//         <FeaturedProduct />
-//         <Sponsored />
-//         <Footer />
-//     </div>
-//   )
-// }
-
-// export default HomePage
 import React from 'react';
 import Header from "../components/Layout/Header";
 import Hero from "../components/Route/Hero/Hero";
@@ -54,6 +29,8 @@ const HomePage = () => {
         <section className="w-full px-4 md:px-10 lg:px-20">
           <FeaturedProduct />
         </section>
+        <br />
+        <br />
         <section className="w-full px-4 md:px-10 lg:px-20">
           <Sponsored />
         </section>

@@ -327,7 +327,21 @@ router.put(
     try {
       const { user, rating, comment, productId, orderId } = req.body;
 
+      // Validate required fields
+      if (!productId || !rating) {
+        return next(new ErrorHandler("Product ID and rating are required", 400));
+      }
+
+      // Validate rating range
+      if (rating < 1 || rating > 5) {
+        return next(new ErrorHandler("Rating must be between 1 and 5", 400));
+      }
+
       const product = await Product.findById(productId);
+
+      if (!product) {
+        return next(new ErrorHandler("Product not found", 404));
+      }
 
       const review = {
         user,
@@ -336,14 +350,19 @@ router.put(
         productId,
       };
 
+      // Convert user IDs to strings for safe comparison
+      const userId = req.user._id.toString();
+
       const isReviewed = product.reviews.find(
-        (rev) => rev.user._id === req.user._id
+        (rev) => rev.user && rev.user._id && rev.user._id.toString() === userId
       );
 
       if (isReviewed) {
         product.reviews.forEach((rev) => {
-          if (rev.user._id === req.user._id) {
-            (rev.rating = rating), (rev.comment = comment), (rev.user = user);
+          if (rev.user && rev.user._id && rev.user._id.toString() === userId) {
+            rev.rating = rating;
+            rev.comment = comment;
+            rev.user = user;
           }
         });
       } else {
@@ -360,18 +379,26 @@ router.put(
 
       await product.save({ validateBeforeSave: false });
 
-      await Order.findByIdAndUpdate(
-        orderId,
-        { $set: { "cart.$[elem].isReviewed": true } },
-        { arrayFilters: [{ "elem._id": productId }], new: true }
-      );
+      // Update order if orderId is provided
+      if (orderId) {
+        try {
+          await Order.findByIdAndUpdate(
+            orderId,
+            { $set: { "cart.$[elem].isReviewed": true } },
+            { arrayFilters: [{ "elem._id": productId }], new: true }
+          );
+        } catch (orderError) {
+          // Log error but don't fail the review creation
+          console.error("Error updating order review status:", orderError);
+        }
+      }
 
       res.status(200).json({
         success: true,
         message: "Reviwed succesfully!",
       });
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return next(new ErrorHandler(error.message || error, 400));
     }
   })
 );

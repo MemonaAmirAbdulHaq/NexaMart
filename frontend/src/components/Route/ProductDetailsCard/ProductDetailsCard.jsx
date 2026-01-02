@@ -186,17 +186,21 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../../../styles/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addTocart } from "../../../redux/actions/cart";
 import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlist";
+import axios from "axios";
+import { server } from "../../../server";
 
 const ProductDetailsCard = ({ setOpen, data }) => {
   const { cart } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
 
@@ -227,6 +231,37 @@ const ProductDetailsCard = ({ setOpen, data }) => {
   const addToWishlistHandler = () => {
     setClick(true);
     dispatch(addToWishlist(data));
+  };
+
+  // Messaging seller
+  const handleMessageSubmit = async () => {
+    if (!isAuthenticated) {
+      toast.error("Please login to create a conversation");
+      return;
+    }
+
+    if (!user?._id || !data?.shop?._id) {
+      toast.error("Unable to start conversation. Please try again.");
+      return;
+    }
+
+    try {
+      const groupTitle = data._id + user._id;
+      const res = await axios.post(
+        `${server}/conversation/create-new-conversation`,
+        {
+          groupTitle,
+          userId: user._id,
+          sellerId: data.shop._id,
+        },
+        { withCredentials: true }
+      );
+      setOpen(false); // Close the modal
+      navigate(`/inbox?${res.data.conversation._id}`);
+    } catch (error) {
+      console.error("Error creating conversation:", error);
+      toast.error(error.response?.data?.message || "Failed to create conversation");
+    }
   };
 
   return (
@@ -263,8 +298,8 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 </div>
 
                 <button
-                  className={`${styles.button} bg-black text-white mt-4 w-full flex justify-center items-center gap-2 h-11 rounded-md`}
-                  onClick={() => {}}
+                  className={`${styles.button} bg-black text-white mt-4 w-full flex justify-center items-center gap-2 h-11 rounded-md cursor-pointer hover:opacity-90 transition-opacity`}
+                  onClick={handleMessageSubmit}
                 >
                   Send Message <AiOutlineMessage />
                 </button>

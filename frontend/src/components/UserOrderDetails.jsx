@@ -101,7 +101,7 @@ const UserOrderDetails = () => {
             </div>
             {!item.isReviewed && data?.status === "Delivered" && (
               <button
-                className={`${styles.button} text-white`}
+                className={`${styles.button}  text-white`}
                 onClick={() => {
                   setSelectedItem(item);
                   setOpen(true);
