@@ -281,7 +281,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <img
                   src={data.images?.[0]?.url}
                   alt={data.name}
-                  className="w-full object-contain rounded-md "
+                  className="w-full max-h-[300px] sm:max-h-[350px] md:max-h-[400px] object-contain rounded-md"
                 />
                 <div className="flex items-center mt-4">
                   <Link to={`/shop/preview/${data.shop._id}`} className="flex items-center gap-3">

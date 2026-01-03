@@ -110,12 +110,16 @@ const ProductDetails = ({ data }) => {
                 <img
                   src={data.images[select]?.url}
                   alt={data.name}
-                  className="w-[80%]"
+                  className="w-[80%] max-h-[400px] sm:max-h-[450px] md:max-h-[500px] object-contain rounded-lg"
                 />
                 <div className="w-full flex mt-3">
                   {data.images.map((img, index) => (
                     <div key={index} className="cursor-pointer mr-3" onClick={() => setSelect(index)}>
-                      <img src={img.url} alt="" className="h-[200px]" />
+                      <img 
+                        src={img.url} 
+                        alt="" 
+                        className="h-[200px] object-contain rounded-md border-2 border-transparent hover:border-teal-400 transition-colors"
+                      />
                     </div>
                   ))}
                 </div>
