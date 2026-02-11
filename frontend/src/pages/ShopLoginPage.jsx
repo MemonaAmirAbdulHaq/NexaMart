@@ -24,10 +24,10 @@ const ShopLoginPage = () => {
   }
 
   return (
-    <div className=" w-full min-h-screen flex justify-center items-start p-4 bg-gray-50">
-      <div className="w-full max-w-md bg-gray-50 shadow-md rounded-lg p-6">
+    <div className="w-full min-h-screen  flex justify-center items-start p-6 bg-white">
+      {/* <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6"> */}
         <ShopLogin />
-      </div>
+      {/* </div> */}
     </div>
   );
 };

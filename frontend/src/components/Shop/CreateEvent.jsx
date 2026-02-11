@@ -47,7 +47,7 @@ const CreateEvent = () => {
     if (success) {
       toast.success("Event created successfully!");
       navigate("/dashboard-events");
-      window.location.reload();
+     // window.location.reload();
     }
   }, [dispatch, error, success, navigate]);
 
@@ -257,7 +257,7 @@ const CreateEvent = () => {
         <div>
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition-all"
+          className="w-full py-2 bg-[#213a56] hover:bg-[#0f1e3f] text-white font-semibold rounded transition-all"
           >
             Create Event
           </button>

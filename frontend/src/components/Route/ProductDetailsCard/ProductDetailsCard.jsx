@@ -326,7 +326,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <div className="flex items-center justify-between mt-6">
                   <div className="flex items-center border rounded-md overflow-hidden">
                     <button
-                      className="px-3 py-2 bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold hover:opacity-75 transition"
+                      className="px-3 py-2 bg-gradient-to-r from-[#0f1e3f] to-[#213a56] text-white font-bold hover:opacity-75 transition"
                       onClick={decrementCount}
                     >
                       -
@@ -335,7 +335,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       {count}
                     </span>
                     <button
-                      className="px-3 py-2 bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold hover:opacity-75 transition"
+                      className="px-3 py-2 bg-gradient-to-r from-[#0f1e3f] to-[#213a56] text-white font-bold hover:opacity-75 transition"
                       onClick={incrementCount}
                     >
                       +

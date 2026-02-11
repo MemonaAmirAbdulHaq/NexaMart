@@ -15,8 +15,8 @@ const Navbar = ({ active }) => {
               className={`pb-2 md:pb-0 px-4 md:px-6 font-medium cursor-pointer transition-colors duration-200
                 ${
                   active === index + 1
-                    ? "text-green-500"
-                    : "text-black md:text-white hover:text-green-500"
+                    ? "text-[#cdaa80]"
+                    : "text-slate-900 md:text-white hover:text-[#cdaa80]"
                 }`}
             >
               {item.title}

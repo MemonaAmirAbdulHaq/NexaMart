@@ -112,7 +112,7 @@ const AllCoupons = () => {
         <div className="w-full px-4 sm:px-8 pt-4 sm:pt-6 mt-8 bg-white rounded-md shadow-sm">
           <div className="flex justify-end mb-4">
             <button
-              className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-4 py-2 rounded-md shadow-md hover:opacity-80 transition duration-200"
+              className="bg-gradient-to-r from-[#0f1e3f] to-[#213a56] text-white px-4 py-2 rounded-md shadow-md hover:opacity-80 transition duration-200"
               onClick={() => setOpen(true)}
             >
               Create Coupon
@@ -158,7 +158,7 @@ const AllCoupons = () => {
                       onChange={(e) => setName(e.target.value)}
                       required
                       placeholder="Enter coupon name"
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-teal-500 outline-none"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#cdaa80] outline-none"
                     />
                   </div>
 
@@ -172,7 +172,7 @@ const AllCoupons = () => {
                       onChange={(e) => setValue(e.target.value)}
                       required
                       placeholder="Enter discount %"
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-teal-500 outline-none"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#cdaa80] outline-none"
                     />
                   </div>
 
@@ -184,7 +184,7 @@ const AllCoupons = () => {
                         value={minAmount}
                         onChange={(e) => setMinAmount(e.target.value)}
                         placeholder="Min amount"
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-teal-500 outline-none"
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#cdaa80] outline-none"
                       />
                     </div>
                     <div>
@@ -194,7 +194,7 @@ const AllCoupons = () => {
                         value={maxAmount}
                         onChange={(e) => setMaxAmount(e.target.value)}
                         placeholder="Max amount"
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-teal-500 outline-none"
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#cdaa80] outline-none"
                       />
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const AllCoupons = () => {
                     <select
                       value={selectedProduct}
                       onChange={(e) => setSelectedProduct(e.target.value)}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-teal-500 outline-none"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#cdaa80] outline-none"
                     >
                       <option value="">Choose product</option>
                       {products?.map((i) => (
@@ -219,7 +219,7 @@ const AllCoupons = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white py-2 rounded-md mt-4 hover:opacity-90 transition"
+                    className="w-full bg-gradient-to-r from-[#0f1e3f] to-[#213a56] text-white py-2 rounded-md mt-4 hover:opacity-90 transition"
                   >
                     Create Coupon
                   </button>

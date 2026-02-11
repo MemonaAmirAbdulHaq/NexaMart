@@ -60,7 +60,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0d5d5d] focus:border-[#0d5d5d] sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#cdaa80] focus:border-[#cdaa80] sm:text-sm"
                 />
               </div>
             </div>
@@ -79,17 +79,17 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0d5d5d] focus:border-[#0d5d5d] sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#cdaa80] focus:border-[#cdaa80] sm:text-sm"
                 />
                 {visible ? (
                   <AiOutlineEye
-                    className="absolute right-2 top-2 cursor-pointer text-[#0d5d5d]"
+                    className="absolute right-2 top-2 cursor-pointer text-[#0f1e3f]"
                     size={25}
                     onClick={() => setVisible(false)}
                   />
                 ) : (
                   <AiOutlineEyeInvisible
-                    className="absolute right-2 top-2 cursor-pointer text-[#0d5d5d]"
+                    className="absolute right-2 top-2 cursor-pointer text-[#0f1e3f]"
                     size={25}
                     onClick={() => setVisible(true)}
                   />
@@ -102,7 +102,7 @@ const Login = () => {
                   type="checkbox"
                   name="remember-me"
                   id="remember-me"
-                  className="h-4 w-4 text-[#0d5d5d] focus:ring-[#0a4a4a] border-gray-300 rounded"
+                  className="h-4 w-4 text-[#cdaa80] focus:ring-[#997953] border-gray-300 rounded"
                 />
                 <label
                   htmlFor="remember-me"
@@ -114,7 +114,7 @@ const Login = () => {
               <div className="text-sm">
                 <a
                   href=".forgot-password"
-                  className="font-medium text-[#0d5d5d] hover:text-[#0a4a4a]"
+                  className="font-medium text-[#cdaa80] hover:text-[#997953]"
                 >
                   Forgot your password?
                 </a>
@@ -123,14 +123,14 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#0d5d5d] hover:bg-[#0a4a4a] transition-all duration-300"
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#213a56] hover:bg-[#0f1e3f] transition-all duration-300"
               >
                 Submit
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="text-[#0d5d5d] pl-2 hover:text-[#0a4a4a] transition-colors">
+              <Link to="/sign-up" className="text-[#cdaa80] pl-2 hover:text-[#997953] transition-colors">
                 Sign Up
               </Link>
             </div>

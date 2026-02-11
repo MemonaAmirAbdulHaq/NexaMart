@@ -29,6 +29,8 @@ const BestSellingPage = () => {
               {data && data.map((i, index) => <ProductCard data={i} key={index} />)}
             </div>
           </div>
+          <br />
+          <br />
           <Footer />
         </div>
       )}

@@ -15,8 +15,8 @@ const ShopCreatePage = () => {
   }, [isSeller, seller, navigate]);
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-start p-4 bg-gray-50">
-      <div className="w-full max-w-3xl bg-gray-50 shadow-md rounded-lg p-6">
+    <div className="w-full min-h-screen flex justify-center items-start p-4 bg-white">
+      <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
         <ShopCreate />
         
       </div>

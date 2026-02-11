@@ -18,10 +18,11 @@ const AdminHeader = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/">
-            <Link to="/">
-            <div className="flex items-center"> <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0d5d5d] via-[#0a4a4a] to-[#083838] bg-clip-text text-transparent hover:from-[#0f7a7a] hover:via-[#0c5f5f] hover:to-[#0a4a4a] transition-all"> NexaMart </h1> </div>
-            
-          </Link>
+            <div className="flex items-center">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0f1e3f] via-[#213a56] to-[#997953] bg-clip-text text-transparent hover:from-[#213a56] hover:via-[#0f1e3f] hover:to-[#cdaa80] transition-all">
+                NexaMart
+              </h1>
+            </div>
           </Link>
         </div>
 

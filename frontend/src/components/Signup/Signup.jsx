@@ -69,7 +69,7 @@ const Singup = () => {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0d5d5d] focus:border-[#0d5d5d] sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#cdaa80] focus:border-[#cdaa80] sm:text-sm"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ const Singup = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0d5d5d] focus:border-[#0d5d5d] sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#cdaa80] focus:border-[#cdaa80] sm:text-sm"
                 />
               </div>
             </div>
@@ -109,17 +109,17 @@ const Singup = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0d5d5d] focus:border-[#0d5d5d] sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#cdaa80] focus:border-[#cdaa80] sm:text-sm"
                 />
                 {visible ? (
                   <AiOutlineEye
-                    className="absolute right-2 top-2 cursor-pointer text-[#0d5d5d]"
+                    className="absolute right-2 top-2 cursor-pointer text-[#0f1e3f]"
                     size={25}
                     onClick={() => setVisible(false)}
                   />
                 ) : (
                   <AiOutlineEyeInvisible
-                    className="absolute right-2 top-2 cursor-pointer text-[#0d5d5d]"
+                    className="absolute right-2 top-2 cursor-pointer text-[#0f1e3f]"
                     size={25}
                     onClick={() => setVisible(true)}
                   />
@@ -141,12 +141,12 @@ const Singup = () => {
                       className="h-full w-full object-cover rounded-full"
                     />
                   ) : (
-                    <RxAvatar className="h-8 w-8 text-[#0d5d5d]" />
+                    <RxAvatar className="h-8 w-8 text-[#0f1e3f]" />
                   )}
                 </span>
                 <label
                   htmlFor="file-input"
-                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-[#0d5d5d] bg-white hover:bg-gray-50 hover:text-[#0a4a4a] transition-colors cursor-pointer"
+                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-[#0f1e3f] bg-white hover:bg-gray-50 hover:text-[#213a56] transition-colors cursor-pointer"
                 >
                   <span>Upload a file</span>
                   <input
@@ -164,14 +164,14 @@ const Singup = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#0d5d5d] hover:bg-[#0a4a4a] transition-all duration-300"
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#213a56] hover:bg-[#0f1e3f] transition-all duration-300"
               >
                 Submit
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
-              <Link to="/login" className="text-[#0d5d5d] pl-2 hover:text-[#0a4a4a] transition-colors">
+              <Link to="/login" className="text-[#cdaa80] pl-2 hover:text-[#997953] transition-colors">
                 Sign In
               </Link>
             </div>

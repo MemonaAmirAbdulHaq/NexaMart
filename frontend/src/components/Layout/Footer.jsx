@@ -31,16 +31,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-black text-white">
+    <footer className="relative overflow-hidden bg-[#0f1e3f] text-white">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-500 animate-pulse"></div>
-        <div className="absolute inset-0 bg-gradient-to-l from-teal-600 via-teal-500 to-cyan-500 opacity-50 animate-pulse delay-1000"></div>
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1e3f] via-[#213a56] to-[#0f1e3f] animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-l from-[#213a56] via-[#0f1e3f] to-[#997953] opacity-60 animate-pulse delay-1000"></div>
       </div>
 
       {/* Newsletter section */}
       <div className="relative z-10">
-        <div className="bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-500 py-12 sm:py-16 px-4 sm:px-8 mx-4 sm:mx-8 my-8 rounded-2xl shadow-2xl transform transition-transform hover:scale-105 duration-500">
+        <div className="bg-gradient-to-r from-[#0f1e3f] via-[#213a56] to-[#997953] py-12 sm:py-16 px-4 sm:px-8 mx-4 sm:mx-8 my-8 rounded-2xl shadow-2xl transform transition-transform hover:scale-105 duration-500">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
             <div className="flex-1">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
@@ -56,9 +56,9 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email..."
-                className="px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-300 w-full sm:w-72 transition-all duration-300"
+                className="px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#cdaa80] w-full sm:w-72 transition-all duration-300"
               />
-              <button className="px-6 py-3 bg-white text-teal-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap">
+              <button className="px-6 py-3 bg-white text-[#0f1e3f] font-semibold rounded-lg hover:bg-[#f5e6d0] transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap">
                 Subscribe
               </button>
             </div>
@@ -71,7 +71,7 @@ const Footer = () => {
             {/* Brand section */}
             <div className="text-center sm:text-left space-y-4">
               <div className="inline-block sm:inline">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-[#cdaa80] via-[#f5e6d0] to-[#997953] bg-clip-text text-transparent">
                   NexaMart
                 </h3>
               </div>
@@ -79,16 +79,16 @@ const Footer = () => {
                 Discover amazing products with seamless shopping experience and world-class customer service.
               </p>
               <div className="flex justify-center sm:justify-start gap-4 pt-4">
-                <a href="#" className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-teal-400 hover:to-cyan-400 hover:bg-clip-text transition-all duration-300 transform hover:scale-125">
+                <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 transform hover:scale-125">
                   <AiFillFacebook size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-cyan-400 hover:to-teal-400 hover:bg-clip-text transition-all duration-300 transform hover:scale-125">
+                <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 transform hover:scale-125">
                   <AiOutlineTwitter size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-teal-300 hover:to-cyan-400 hover:bg-clip-text transition-all duration-300 transform hover:scale-125">
+                <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 transform hover:scale-125">
                   <AiFillInstagram size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-teal-400 hover:to-teal-300 hover:bg-clip-text transition-all duration-300 transform hover:scale-125">
+                <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 transform hover:scale-125">
                   <AiFillYoutube size={24} />
                 </a>
               </div>
@@ -96,7 +96,7 @@ const Footer = () => {
 
             {/* Company links */}
             <div className="text-center sm:text-left">
-              <h4 className="text-lg font-semibold mb-6 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              <h4 className="text-lg font-semibold mb-6 text-[#cdaa80]">
                 Company
               </h4>
               <ul className="space-y-3">
@@ -104,7 +104,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={link.link}
-                      className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-teal-400 hover:to-cyan-400 hover:bg-clip-text transition-all duration-300 text-sm hover:translate-x-2 inline-block"
+                      className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 text-sm hover:translate-x-2 inline-block"
                     >
                       {link.name}
                     </a>
@@ -115,7 +115,7 @@ const Footer = () => {
 
             {/* Shop links */}
             <div className="text-center sm:text-left">
-              <h4 className="text-lg font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+              <h4 className="text-lg font-semibold mb-6 text-[#cdaa80]">
                 Shop
               </h4>
               <ul className="space-y-3">
@@ -123,7 +123,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={link.link}
-                      className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-cyan-400 hover:to-teal-400 hover:bg-clip-text transition-all duration-300 text-sm hover:translate-x-2 inline-block"
+                      className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 text-sm hover:translate-x-2 inline-block"
                     >
                       {link.name}
                     </a>
@@ -134,7 +134,7 @@ const Footer = () => {
 
             {/* Support links */}
             <div className="text-center sm:text-left">
-              <h4 className="text-lg font-semibold mb-6 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              <h4 className="text-lg font-semibold mb-6 text-[#cdaa80]">
                 Support
               </h4>
               <ul className="space-y-3">
@@ -142,7 +142,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={link.link}
-                      className="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-teal-400 hover:to-cyan-400 hover:bg-clip-text transition-all duration-300 text-sm hover:translate-x-2 inline-block"
+                      className="text-gray-400 hover:text-[#cdaa80] transition-all duration-300 text-sm hover:translate-x-2 inline-block"
                     >
                       {link.name}
                     </a>
@@ -153,7 +153,7 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent my-8"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#cdaa80] to-transparent my-8"></div>
 
           {/* Bottom section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center sm:text-left">
@@ -161,11 +161,11 @@ const Footer = () => {
               © 2025 Nexamart. All rights reserved.
             </p>
             <div className="flex justify-center sm:justify-start gap-4">
-              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
+              <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-colors text-sm">
                 Privacy Policy
               </a>
               <span className="text-gray-600">·</span>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
+              <a href="#" className="text-gray-400 hover:text-[#cdaa80] transition-colors text-sm">
                 Terms & Conditions
               </a>
             </div>

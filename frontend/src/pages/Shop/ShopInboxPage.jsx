@@ -1,30 +1,5 @@
 
-// import React from "react";
-// import DashboardHeader from "../../components/Shop/Layout/DashboardHeader";
-// import DashboardSideBar from "../../components/Shop/Layout/DashboardSideBar";
-// import DashboardMessages from "../../components/Shop/DashboardMessages";
 
-// const ShopInboxPage = () => {
-//   return (
-//     <div>
-//       {/* Header */}
-//       <DashboardHeader />
-
-//       {/* Main content with sidebar */}
-//       <div className="flex items-start justify-between w-full">
-//         {/* Sidebar */}
-//         <div className="w-[80px] 800px:w-[330px]">
-//           <DashboardSideBar active={8} />
-//         </div>
-
-//         {/* Messages section */}
-//         <DashboardMessages />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ShopInboxPage;
 import React from "react";
 import DashboardHeader from "../../components/Shop/Layout/DashboardHeader";
 import DashboardSideBar from "../../components/Shop/Layout/DashboardSideBar";

@@ -185,7 +185,7 @@ const ShopCreate = () => {
             <div>
   <button
     type="submit"
-    className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700"
+    className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#213a56] hover:bg-[#0f1e3f]"
   >
     Submit
   </button>
@@ -196,7 +196,7 @@ const ShopCreate = () => {
   <h4>Already have an account?</h4>
   <Link 
     to="/shop-login" 
-    className="text-teal-600 hover:text-teal-700 font-medium pl-2"
+    className="text-[#cdaa80] hover:text-[#997953] font-medium pl-2"
   >
     Sign in
   </Link>
